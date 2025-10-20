@@ -1,10 +1,8 @@
 import React from "react";
 import "../styles/About.css";
 import FadeInSection from "./FadeInSection";
-import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
-
 import "../styles/Intro.css";
-import Typist from "react-typist";
+// import Typist from "react-typist";
 import "react-typist/dist/Typist.css";
 
 class About extends React.Component {
@@ -25,8 +23,8 @@ class About extends React.Component {
     const one = (
       <p>
 
-          I’m a <b>research Master’s student in Artificial Intelligence </b> at the <a>University de Montreal</a>, affiliated with <a>Geodes</a>. My work focuses on multi-agent systems and alignment for code generation, exploring how large language models can collaborate to produce more reliable, readable, and human-aligned code.
-      
+          I’m a <b>research Master’s student in Artificial Intelligence </b> at the <a href="https://www.umontreal.ca/en/">University de Montreal</a>, affiliated with <a href="https://geodes.iro.umontreal.ca/">Geodes</a>. My work focuses on multi-agent systems and alignment for code generation, exploring how large language models can collaborate to produce more reliable, readable, and human-aligned code.
+
       </p>
     );
 

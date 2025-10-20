@@ -13,6 +13,8 @@ export default function FadeInSection(props) {
     });
     observer.observe(domRef.current);
     return () => observer.unobserve(domRef.current);
+
+    
   }, []);
   return (
     <div
@@ -24,3 +26,30 @@ export default function FadeInSection(props) {
     </div>
   );
 }
+
+
+// // src/components/FadeInSection.js
+// import { useEffect, useRef } from 'react';
+
+// export default function FadeInSection({ children, className }) {
+//   const domRef = useRef(null);
+
+//   useEffect(() => {
+//       const node = domRef.current;      // capture current node
+//       if (!node) return;
+//       const observer = new IntersectionObserver(([entry]) => {
+//         if (entry.isIntersecting) {
+//           node.classList.add('is-visible');
+//           observer.unobserve(node);
+//       }
+//   }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+//     observer.observe(node);
+//     return () => observer.disconnect();
+//   }, []); // Do NOT put domRef.current in deps
+
+//   return (
+//     <div ref={domRef} className={className}>
+//       {children}
+//     </div>
+//   );
+// }
