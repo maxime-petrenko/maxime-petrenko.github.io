@@ -1,0 +1,16 @@
+:root {
+  --dark-navy: #c34444;
+  --navy: #f3f0ea;
+  --light-navy: #4cac64;
+  --lightest-navy: #C9C9C9;
+  --navy-shadow: rgba(58, 98, 157, 0.7);
+  --slate: #525050;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #676662;
+  --white: #e6f1ff;
+  --green-bright: #ff9500;
+  --green-tint: rgba(100, 255, 218, 0.1);
+}
+
+
+/* #8C8C8C,#A0A0A0,#B4B4B4,#C9C9C9,#DDDDDD,#F2F2F2,#FFFFFF */

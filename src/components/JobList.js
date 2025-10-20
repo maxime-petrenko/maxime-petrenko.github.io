@@ -1,0 +1,208 @@
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import FadeInSection from "./FadeInSection";
+
+import Container from "@material-ui/core/Container";
+
+const isHorizontal = window.innerWidth < 600;
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  if (isHorizontal) {
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`full-width-tabpanel-${index}`}
+        aria-labelledby={`full-width-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box p={3}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  } else {
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`vertical-tabpanel`}
+        {...other}
+      >
+        {value === index && (
+          <Box p={3}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired
+};
+
+function a11yProps(index) {
+  if (isHorizontal) {
+    return {
+      id: `full-width-tab-${index}`,
+      "aria-controls": `full-width-tabpanel-${index}`
+    };
+  } else {
+    return {
+      id: `vertical-tab-${index}`
+    };
+  }
+}
+
+
+
+const useStyles = makeStyles(theme => ({
+    root: {
+      flexGrow: 1,
+      backgroundColor: "theme.palette.background.paper",
+      display: "flex",
+      height: 300,
+      
+    },
+    tabs: {
+      borderRight: `1px solid ${theme.palette.divider}`,
+    },
+
+    tabPanel: {
+      flex: 1,         // take remaining space
+      minWidth: 0,     // critical to allow shrinking in flex layouts
+      display: "block"
+    },
+
+
+
+}));
+
+
+
+
+
+const JobList = () => {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+
+    const myExperienceItems = {
+    "MasterAI": {
+      jobTitle: "Master’s in Artificial Intelligence @ University de Montreal & Mila – Quebec AI Institute",
+      duration: "2024 – PRESENT",
+      desc: [
+        "Graduate studies focused on advanced topics in machine learning, data science, and AI systems.",
+        "Completed key courses: Fundamentals of Machine Learning, Representation Learning, Data Science, and a Seminar on Artificial General Intelligence.",
+        "Developed strong foundations in statistical learning, deep representation models, and alignment research, supporting ongoing experimental work on multi-agent collaboration."
+      ]
+    },
+    "GEODESLab": {
+      jobTitle: "Research Student – Software Engineering Lab @ University of Montreal",
+      duration: "2024 – PRESENT",
+      desc: [
+        "Conducting research on multi-agent alignment for code generation under Prof. Houari Sahraoui's supervision.",
+        "Designed an agentic framework where Generator, Critics, Refiner, and Arbiter agents iteratively improve code quality.",
+        "Built end-to-end pipelines using Python, PyTorch, Hugging Face, and FastAPI on multi-GPU clusters.",
+        "Developed evaluation harnesses on datasets like BigCodeBench and CodeUltraFeedback, focusing on readability, robustness, and instruction-following."
+      ]
+    },
+    "NHL Project": {
+      jobTitle: "Data Science Project – Shot Success Prediction",
+      duration: "2023",
+      desc: [
+        "Built a real-time predictive system estimating shot success probabilities in NHL games.",
+        "Designed a data pipeline with Python (pandas, scikit-learn) and engineered features capturing spatial and temporal patterns.",
+        "Trained classification models and deployed results in a Streamlit dashboard with interactive visualizations.",
+        "Strengthened skills in data engineering, model evaluation, and end-to-end ML deployment."
+      ]
+    },
+    "Drone Swarm": {
+      jobTitle: "Drone Swarm Optimization",
+      duration: "2023",
+      desc: [
+        "Developed a drone swarm optimization algorithm for efficient task allocation.",
+        "Implemented a simulation environment using Python and ROS (Robot Operating System).",
+        "Conducted experiments to evaluate the performance of the algorithm in various scenarios.",
+        "Gained experience in multi-agent systems, optimization techniques, and robotic simulations."
+      ]
+    },
+  };
+
+
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className={classes.root}>  
+
+
+
+      <Tabs
+        orientation={!isHorizontal ? "vertical" : null}
+        variant={isHorizontal ? "fullWidth" : "scrollable"}
+        value={value}
+        onChange={handleChange}
+        className={classes.tabs}
+      >
+
+        {Object.keys(myExperienceItems).map((key, i) => (
+          <Tab label={isHorizontal ? `0${i}.` : key} {...a11yProps(i)} />
+        ))}
+      </Tabs>
+
+
+
+      {Object.keys(myExperienceItems).map((key, i) => (
+        <TabPanel className={classes.tabPanel} value={value} index={i}>
+          <Box p={3} className={classes.panelBox}>
+            <Typography component="div">
+              <TabPanel value={value} index={i}>
+
+                <span className="joblist-job-title">
+                  {myExperienceItems[key]["jobTitle"] + " "}
+                </span>
+                <span className="joblist-job-company">{key}</span>
+                <div className="joblist-duration">
+                  {myExperienceItems[key]["duration"]}
+                </div>
+
+                <ul className="job-description">
+                  {myExperienceItems[key]["desc"].map(function (descItem, i) {
+                    return (
+                      <FadeInSection delay={`${i + 1}00ms`}>
+                        <li key={i}>{descItem}</li>
+                      </FadeInSection>
+                    );
+                  })}
+                </ul>
+              </TabPanel>
+            </Typography>
+          </Box>
+        </TabPanel>
+      ))}
+
+
+    </div>
+  );
+};
+
+export default JobList;
+
+
+
