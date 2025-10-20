@@ -130,7 +130,11 @@ const JobList = () => {
         "Strengthened skills in data engineering, model evaluation, and end-to-end ML deployment."
       ]
     },
-    // "Drone Swarm": {
+    
+  };
+
+
+  // "Drone Swarm": {
     //   jobTitle: "Drone Swarm Optimization",
     //   duration: "2023",
     //   desc: [
@@ -140,8 +144,6 @@ const JobList = () => {
     //     "Gained experience in multi-agent systems, optimization techniques, and robotic simulations."
     //   ]
     // },
-  };
-
 
 
   const handleChange = (event, newValue) => {
