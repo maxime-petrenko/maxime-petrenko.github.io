@@ -4,6 +4,8 @@ import FadeInSection from "./FadeInSection";
 import "../styles/Intro.css";
 // import Typist from "react-typist";
 import "react-typist/dist/Typist.css";
+import EmailRoundedIcon from "@material-ui/icons/EmailRounded";
+
 
 class About extends React.Component {
   constructor() {
@@ -64,14 +66,26 @@ class About extends React.Component {
               {[three]}
               {[four]}
             </div>
+
+
             <div className="about-image">
               <img alt="Maxime Petrenko" src={"/assets/me.jpeg"} />
 
+              <a href="mailto:maxime.petrenko@umontreal.ca" className="intro-contact">
+                <EmailRoundedIcon></EmailRoundedIcon>
+                {" Say hi!"}
+              </a>
+            
+            
             </div>
 
             
           </div>
         </FadeInSection>
+
+        
+
+
       </div>
     );
   }

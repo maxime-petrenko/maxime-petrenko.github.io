@@ -49,20 +49,20 @@
   padding-bottom: 50px;
 }
 
-.intro-contact {
+/* .intro-contact {
   font-size: 22px;
   font-weight: bolder;
   font-family: "NTR", sans-serif;
   align-self: center;
   padding: 10px 30px;
   cursor: pointer;
-  border: 1px solid var(--green-bright);
-  border-radius: 4px;
+  border: 2px solid var(--green-bright);
+  border-radius: 15px;
 }
 
 .intro-contact:hover {
   background-color: var(--lightest-navy);
-}
+} */
 
 b {
   font-size: 17px;
