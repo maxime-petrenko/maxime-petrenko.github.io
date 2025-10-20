@@ -130,16 +130,16 @@ const JobList = () => {
         "Strengthened skills in data engineering, model evaluation, and end-to-end ML deployment."
       ]
     },
-    "Drone Swarm": {
-      jobTitle: "Drone Swarm Optimization",
-      duration: "2023",
-      desc: [
-        "Developed a drone swarm optimization algorithm for efficient task allocation.",
-        "Implemented a simulation environment using Python and ROS (Robot Operating System).",
-        "Conducted experiments to evaluate the performance of the algorithm in various scenarios.",
-        "Gained experience in multi-agent systems, optimization techniques, and robotic simulations."
-      ]
-    },
+    // "Drone Swarm": {
+    //   jobTitle: "Drone Swarm Optimization",
+    //   duration: "2023",
+    //   desc: [
+    //     "Developed a drone swarm optimization algorithm for efficient task allocation.",
+    //     "Implemented a simulation environment using Python and ROS (Robot Operating System).",
+    //     "Conducted experiments to evaluate the performance of the algorithm in various scenarios.",
+    //     "Gained experience in multi-agent systems, optimization techniques, and robotic simulations."
+    //   ]
+    // },
   };
 
 
